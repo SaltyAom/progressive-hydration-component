@@ -8491,6 +8491,11 @@ process@^0.11.10:
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
   integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
 
+progressive-hydration-component@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/progressive-hydration-component/-/progressive-hydration-component-0.1.1.tgz#3590773ae09509a8eddf7d660b7dde4ede68ef54"
+  integrity sha512-oMN3M+S/8bJ8yQ2omDPWNuCvXapOHkyq03DeWJdqP/rCSXjdtrOoeSDTmIVQ0lIDusu8WAPnJMdETSjXJRtqHw==
+
 promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"

@@ -1,7 +1,7 @@
 {
-    "name": "progresive-hydration-component",
+    "name": "progressive-hydration-component",
     "description": "Easily implement Progressive Hydration as React Component",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "main": "index.js",
     "typings": "index.d.ts",
     "keywords": [
@@ -23,7 +23,7 @@
         "compress": "yarn compress:js && yarn compress:preact",
         "compress:js": "terser dist/index.js -o dist/index.js --compress --mangle",
         "compress:preact": "terser dist/preact/index.js -o dist/preact/index.js --compress --mangle",
-        "release": "yarn test && yarn build && yarn publish --non-interactive",
+        "release": "yarn build && yarn publish --non-interactive",
         "test": "jest",
         "test:clear": "jest --clearCache"
     },

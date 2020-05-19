@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 
-import ProgressiveHydration, { removeEvent } from 'components'
+import ProgressiveHydration, { removeEvent } from 'progressive-hydration-component/dist'
 
 import Button from '../components/button'
 
