@@ -37,6 +37,7 @@ const Component = () => (
         {/* Pre-render at built time, no JavaScript is executed during first load. */}
         {removeEvent(Button)}
     </ProgressiveHydration>
+)
 ```
 ###### Note: This example is tested with Next.js
 
