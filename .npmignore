@@ -10,3 +10,5 @@ tsconfig-es6.json
 tsconfig-esm.json
 tsconfig-umd.json
 yarn.lock
+demo
+.prettierrc

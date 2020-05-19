@@ -1,1 +1,0 @@
-export default e=>new Promise(t=>{let l=[];e.map(h=>setTimeout(m=>{l.push(h),l.length===e.length&&t(l)},h))});

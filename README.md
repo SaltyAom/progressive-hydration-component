@@ -1,51 +1,45 @@
-# Slept Sort
-Asynchronously sleep sort.
+# Progressive Hydration Component
+Easily implement Progressive Hydration as React Component
 
-## What is...
-An implementation of [sleep sort](https://www.cs.princeton.edu/courses/archive/fall13/cos226/lectures/52Tries.pdf) in JavaScript asynchronously.
+## Progressive Hydration?
+Progressive Hydration is a term introduced at Google I/O 2019 by the concept to balance between client and server for the best performance.
 
-Basically, it will sort array of number by `n ms` where n is value of member of the array.
+By hydrate top priority component on server and then re-hydrate lesser priority component on the client.
 
-Time Complexity of sleep sort is unpredictable but I like to call it `O(wtf(N))`. 
-It's neither fast nor slow without an absolute input, just pure chaos like Schordinger's cat.
+By doing this, the first execution of JavaScript when landed on client is reduced which result better performance then lazily re-hydrate the component which is intersected on the client.
 
-## Why use Slept Sort
-Slept Sort is:
-* Pure function
-* TypeScript support
-* Multiple module to choose from
-* Lightweight
+By implementing this strategy, the Time To Interactive is greatly improved, since only visible and top priority component is the only to be interactable while the other is active when need.
 
-## Example Usage
-It's basically:
+## Benefit
+* Greatly improve JavaScript Time To Interactive
+* Kind of Lazy load interaction
+* Perfectly work with pre-render
+* Built for Next.js
+* Preact support
+* First class TypeScript
+* Tiny bundle size
+
+## The downside
+To rehydrate the component, the extra wrapper is introduced to use `ReactDOM.rehydrate` which result an extra auto-generated `<div>` as a wrapper for `progressive hydrated` component.
+
+## Example
+`Progressive Hydration Component` is imported as a React Component and introduced an extra `removeEvent` function to remove event from any React Component for pre-rendering and to be rehydrated later.
 ```javascript
-import sleptSort from 'slept-sort'
+import ProgressiveHydration, { removeEvent } from 'progressive-hydration-component'
 
-let someAsyncFunction = async() => {
-    await sleptSort([3,1,2]) // [1,2,3]
-}
+import Button from 'components/button'
+
+const Component = () => (
+    <ProgressiveHydration
+        // When in view, component is re-hydrate with event.
+        component={() => import('components/button')}
+    >
+        {/* Pre-render at built time, no JavaScript is executed during first load. */}
+        {removeEvent(Button)}
+    </ProgressiveHydration>
 ```
+###### Note: This example is tested with Next.js
 
-For some reason, you might interested in pre-built module:
-```javascript
-import sleptSort from 'slept-sort/dist'
-
-let someAsyncFunction = async() => {
-    await sleptSort([3,1,2]) // [1,2,3]
-}
-```
-
-Or use other module resolution:
-```javascript
-const sleptSort = require('slept-sort/dist/cjs')
-
-let someAsyncFunction = async() => {
-    await sleptSort([3,1,2]) // [1,2,3]
-}
-```
-
-The reason why you might interested in Slept Sort is because it
-
-![Contains cat GIF](https://camo.githubusercontent.com/276f412823469d4fbbdad5bf42c43d1747dbf327/68747470733a2f2f666f7274686562616467652e636f6d2f696d616765732f66656174757265642f66656174757265642d636f6e7461696e732d6361742d676966732e737667)
-
-![Vanilla GIF](https://steamuserimages-a.akamaihd.net/ugc/105106517891993907/A52B4F0853EDACCE1BFE6F71B6E60598523E1585/)
+## Resources
+* [Google I/O 2019: Rendering on the Web: Performance Implications of Application Architecture](https://youtu.be/k-A2VfuUROg?t=970)
+* [React DOM Hydrate](https://reactjs.org/docs/react-dom.html#hydrate)

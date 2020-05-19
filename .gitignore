@@ -1,2 +1,13 @@
 node_modules
 .DS_Store
+dist
+index.jsx
+index.jsx.map
+index.d.ts
+types.js
+types.js.map
+types.d.ts
+demo/.git
+demo/.github
+demo/.next
+demo/node_modules
